@@ -18,8 +18,9 @@ export default function CommentCreate({ postId }) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label>New Comment</label>
+          <label htmlFor={`content-${postId}`}>New Comment</label>
           <input
+            id={`content-${postId}`}
             value={content}
             onChange={(e) => setContent(e.target.value)}
             className='form-control'

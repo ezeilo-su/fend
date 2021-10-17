@@ -14,8 +14,9 @@ export default function PostCreate() {
     <div>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label>Ttitle</label>
+          <label htmlFor={`content-${title}`}>Ttitle</label>
           <input
+            id={`content-${title}`}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className='form-control'
