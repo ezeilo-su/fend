@@ -6,9 +6,12 @@ export default function PostCreate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await axios.post('http://posts.com/posts/create', { title });
-    setTitle('');
+    try {
+      await axios.post('http://posts.com/posts/create', { title });
+      setTitle('');
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>

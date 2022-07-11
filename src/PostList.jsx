@@ -8,9 +8,13 @@ export default function PostList() {
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get('http://posts.com/posts');
-      console.log(res.data);
-      setPosts(res.data);
+      try {
+        const res = await axios.get('http://posts.com/posts');
+        console.log(res.data);
+        setPosts(res.data);
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, []);
 
