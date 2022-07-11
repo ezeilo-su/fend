@@ -1,19 +1,12 @@
-# Specify a base image
-FROM node:alpine
-
-# Set default working directory
-
-WORKDIR /usr/app
-
-# Copy everything from the current working directory of the app to
-# the current working directory inside the container
-# If not, pachage.json will not be found during npm install
-COPY ./package.json ./
-
-# Install some dependencies
+FROM node:16-alpine
+ 
+# Add the following lines
+ENV CI=true
+ENV WDS_SOCKET_PORT=0
+ 
+WORKDIR /app
+COPY package.json ./
 RUN npm install
-
 COPY ./ ./
-
-# Default command
+ 
 CMD ["npm", "start"]
